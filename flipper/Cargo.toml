@@ -1,0 +1,31 @@
+[package]
+name = "flipper"
+version = "0.1.0"
+authors = ["[your_name] <[your_email]>"]
+edition = "2018"
+
+[dependencies]
+ink_core = { git = "https://github.com/paritytech/ink", package = "ink_core", rev = "1748b51ad8364d71bbd18b67db587bb694fb1aef" }
+ink_model = { git = "https://github.com/paritytech/ink", package = "ink_model", rev = "1748b51ad8364d71bbd18b67db587bb694fb1aef" }
+ink_lang = { git = "https://github.com/paritytech/ink", package = "ink_lang", rev = "1748b51ad8364d71bbd18b67db587bb694fb1aef" }
+parity-codec = { version = "3.3", default-features = false, features = ["derive"] }
+
+[lib]
+name = "flipper"
+crate-type = ["cdylib"]
+
+[features]
+default = []
+test-env = [
+    "ink_core/test-env",
+    "ink_model/test-env",
+    "ink_lang/test-env",
+]
+generate-api-description = [
+    "ink_lang/generate-api-description"
+]
+
+[profile.release]
+panic = "abort"
+lto = true
+opt-level = "z"

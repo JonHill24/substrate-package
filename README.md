@@ -1,6 +1,6 @@
-# Substrate Package
+# Substrate Package Contracts
 
-A stable, known working version of the [Substrate Node Template](https://github.com/paritytech/substrate/tree/master/node-template) and [Substrate UI](https://github.com/paritytech/substrate-ui).
+A stable, known working version of the [Substrate Node Template](https://github.com/paritytech/substrate/tree/master/node-template) and [ink!](https://github.com/paritytech/ink) for building smart contracts on Substrate.
 
 # How to use it:
 
