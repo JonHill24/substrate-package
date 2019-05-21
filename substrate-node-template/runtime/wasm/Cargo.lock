@@ -2166,6 +2166,7 @@ dependencies = [
  "rustc_version 0.2.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "sr-std 1.0.0 (git+https://github.com/paritytech/substrate.git?rev=dec7af1cf40ceb7a57537e85af27dc9e18ff2fd5)",
  "substrate-primitives 1.0.0 (git+https://github.com/paritytech/substrate.git?rev=dec7af1cf40ceb7a57537e85af27dc9e18ff2fd5)",
+ "wasmi 0.4.3 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -2249,6 +2250,8 @@ dependencies = [
  "parity-codec 3.5.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "parity-wasm 0.31.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "pwasm-utils 0.6.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "serde 1.0.89 (registry+https://github.com/rust-lang/crates.io-index)",
+ "serde_derive 1.0.89 (registry+https://github.com/rust-lang/crates.io-index)",
  "sr-io 1.0.0 (git+https://github.com/paritytech/substrate.git?rev=dec7af1cf40ceb7a57537e85af27dc9e18ff2fd5)",
  "sr-primitives 1.0.0 (git+https://github.com/paritytech/substrate.git?rev=dec7af1cf40ceb7a57537e85af27dc9e18ff2fd5)",
  "sr-sandbox 1.0.0 (git+https://github.com/paritytech/substrate.git?rev=dec7af1cf40ceb7a57537e85af27dc9e18ff2fd5)",
