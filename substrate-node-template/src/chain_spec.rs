@@ -1,7 +1,7 @@
 use primitives::{ed25519, sr25519, Pair};
 use template_node_runtime::{
 	AccountId, GenesisConfig, ConsensusConfig, TimestampConfig, BalancesConfig,
-	SudoConfig, IndicesConfig,
+	SudoConfig, IndicesConfig, ContractConfig,
 };
 use substrate_service;
 
@@ -48,7 +48,8 @@ impl Alternative {
 				], vec![
 					account_key("Alice")
 				],
-					account_key("Alice")
+					account_key("Alice"),
+					true,
 				),
 				vec![],
 				None,
@@ -71,6 +72,7 @@ impl Alternative {
 					account_key("Ferdie"),
 				],
 					account_key("Alice"),
+					false,
 				),
 				vec![],
 				None,
@@ -90,7 +92,28 @@ impl Alternative {
 	}
 }
 
-fn testnet_genesis(initial_authorities: Vec<AuthorityId>, endowed_accounts: Vec<AccountId>, root_key: AccountId) -> GenesisConfig {
+fn testnet_genesis(
+	initial_authorities: Vec<AuthorityId>,
+	endowed_accounts: Vec<AccountId>,
+	root_key: AccountId,
+	enable_println: bool,
+) -> GenesisConfig {
+	let mut contract_config = ContractConfig {
+		transaction_base_fee: 1,
+		transaction_byte_fee: 0,
+		transfer_fee: 0,
+		creation_fee: 0,
+		contract_fee: 21,
+		call_base_fee: 135,
+		create_base_fee: 175,
+		gas_price: 1,
+		max_depth: 1024,
+		block_gas_limit: 10_000_000,
+		current_schedule: Default::default(),
+	};
+	// this should only be enabled on development chains
+	contract_config.current_schedule.enable_println = enable_println;
+
 	GenesisConfig {
 		consensus: Some(ConsensusConfig {
 			code: include_bytes!("../runtime/wasm/target/wasm32-unknown-unknown/release/template_node_runtime_wasm.compact.wasm").to_vec(),
@@ -115,5 +138,6 @@ fn testnet_genesis(initial_authorities: Vec<AuthorityId>, endowed_accounts: Vec<
 		sudo: Some(SudoConfig {
 			key: root_key,
 		}),
+		contract: Some(contract_config),
 	}
 }
