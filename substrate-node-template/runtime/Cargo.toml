@@ -28,6 +28,7 @@ std = [
     'safe-mix/std',
     'consensus-aura/std',
     'offchain-primitives/std',
+    'sudo-contract/std',
 ]
 [dependencies.aura]
 default_features = false
@@ -46,6 +47,12 @@ default_features = false
 git = 'https://github.com/paritytech/substrate.git'
 package = 'srml-contract'
 rev = 'dec7af1cf40ceb7a57537e85af27dc9e18ff2fd5'
+
+[dependencies.sudo-contract]
+default_features = false
+git = 'https://github.com/shawntabrizi/sudo-contract.git'
+branch = 'v1.0'
+package = 'sudo-contract'
 
 [dependencies.client]
 default_features = false

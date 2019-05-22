@@ -198,6 +198,8 @@ impl contract::Trait for Runtime {
 	type GasPayment = ();
 }
 
+impl sudo_contract::Trait for Runtime {}
+
 /// Used for the module template in `./template.rs`
 impl template::Trait for Runtime {
 	type Event = Event;
@@ -216,7 +218,8 @@ construct_runtime!(
 		Indices: indices,
 		Balances: balances,
 		Sudo: sudo,
-		Contract: contract::{Module, Call, Storage, Config<T>, Event<T>},
+		Contract: contract::{Module, Storage, Config<T>, Event<T>},
+		SudoContract: sudo_contract::{Module, Call},
 		// Used for the module template in `./template.rs`
 		TemplateModule: template::{Module, Call, Storage, Event<T>},
 	}
